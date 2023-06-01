@@ -163,6 +163,7 @@ h1.h1_image {
   overflow: hidden;
 }
 
+  
 .main_program {
   display: flex;
   justify-content: center;
@@ -544,7 +545,7 @@ hr {
 
   .work_section {
     width: 100%;
-    height: 20vh;
+    height: 50vh;
   }
 
   .program_details_wrapper {

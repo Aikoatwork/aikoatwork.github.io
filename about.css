@@ -97,6 +97,8 @@ nav {
   gap: 30px;
 }
 
+
+
 .mobile_menu {
   display: none;
 }
@@ -143,6 +145,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 70px;
   gap: 12px;
 }
 

@@ -2,19 +2,13 @@
  
 include 'koneksi.php';
  
-error_reporting(0);
- 
 session_start();
- 
-if (isset($_SESSION['username'])) {
-    header("Location: index.php");
-}
 
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
  
-    $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+    $sql = "SELECT * FROM member WHERE email='$email' AND password='$password'";
     $result = mysqli_query($conn, $sql);
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_assoc($result);
@@ -34,6 +28,7 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="login_style.css">
+    <link rel="icon" href="images/logo.ico">
     <title>Login</title>
 </head>
 
@@ -43,14 +38,16 @@ if (isset($_POST['submit'])) {
         <form action="login_process.php" method="POST" class="login-email">
             <p class="login-text" style="font-size: 2rem; font-weight: 800;">Login</p>
             <?php
-            if (isset($_GET['error'])):
-                ?>
-                <p>Email tidak terdaftar</p>
-                <?php
-            endif;
+            if (isset($_GET['error'])) {
+                if ($_GET['error'] == 1) {
+                    echo "<p>Username/Email tidak terdaftar</p>";
+                } elseif ($_GET['error'] == 2) {
+                    echo "<p>Password salah</p>";
+                }
+            }
             ?>
             <div class="input-group">
-                <input type="email" placeholder="Email" name="email" required>
+                <input type="text" placeholder="Username/Email" name="kredensial" required>
             </div>
             <div class="input-group">
                 <input type="password" placeholder="Password" name="password" required>
@@ -58,7 +55,7 @@ if (isset($_POST['submit'])) {
             <div class="input-group">
                 <button name="submit" class="btn">Login</button>
             </div>
-            <p class="login-register-text">Anda belum punya akun? <a href="register.php">Register</a></p>
+            <p class="login-register-text">Belum punya akun? <a href="register.php">Register</a></p>
         </form>
     </div>
 </body>

@@ -1,10 +1,9 @@
 <?php
-session_start();
-if(!isset($_SESSION['login'])){
-    header("Location: login.php");
-    exit();
-}
-
+    session_start();
+    if(!isset($_SESSION['login'])){
+        header("Location: login.php");
+        exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,13 +18,14 @@ if(!isset($_SESSION['login'])){
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <title>UPNYK FEST</title>
+    <link rel="icon" href="images/logo.ico">
+    <title>UPNVY FEST</title>
 </head>
 
 <body>
     <header>
         <nav>
-            <a href="home.php" class="music_logo">
+            <a href="index.php" class="music_logo">
                 <img src="images/logo.png" alt="logo image">
             </a>
             <div class="hamburger_menu">
@@ -36,10 +36,10 @@ if(!isset($_SESSION['login'])){
             <ul class="mobile_menu">
             <li><a href="index.php">Home</a></li>
                 <li><a href="./about.html">About</a></li>
-                <li><a href="featured.php">Featured</a></li>
+                <li><a href="featured.html">Featured</a></li>
                 <li><a href="logout.php">Logout</a></li>
                 
-                <li><a class="nav_link_ticket" href="./member.php"> Get ticket</a></li>
+                <li><a class="nav_link_ticket" href="order.php"> Get ticket</a></li>
             </ul>
             <ul class="nav_link">
                 <li><a class="nav_link_line" href="#">About</a></li>
@@ -53,12 +53,10 @@ if(!isset($_SESSION['login'])){
         <section class="homepage">
             <div class="homepage_content">
                 <div class="header_content">
-                    <h3>"welcome y'all"</h3>
-                    <h1 class="h1_image">Monsters of rock world concert 2023</h1>
+                    <h1 class="h1_image">UPNVY FESTIVAL 2023</h1>
                 </div>
                 <div class="paragraph">
-                    <p>A great concert celebrating multiple talents from various counties <br>
-                        which is taking place in gotham city on 15th october</p>
+                    <p>Tonton dan saksikan festival UPNVY yang menghadirkan<br>band-band ternama serta berbagai macam acara yang meriah</p>
                 </div>
                 <div class="paragraph_two">
                     <h2>
@@ -101,7 +99,6 @@ if(!isset($_SESSION['login'])){
                         <p> Penampilan Bintang Utama dan Closing</p>
                     </article>
                 </div>
-                <button class="ticket_button">get your ticket</button>
             </div>
 
         </section>

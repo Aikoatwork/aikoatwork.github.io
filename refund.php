@@ -21,16 +21,16 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
           <div class="header_content">
             <h1 class="h1_image">FORM PEMESANAN</h1>
           </div>
-          <form class="booking_form" action="edit_proses.php" method="post">
+          <form class="booking_form" action="refund_proses.php" method="post">
             <div class="form_group">
               <label for="username">Nama:</label>
-              <input type="text" id="username" name="username" value="<?php echo $username; ?>" disabled>
+              <input type="text" id="username" name="username" value="<?php echo $username; ?>" required>
             </div>
             <div class="form_group">
-              <label for="banyak_tiket">Jumlah:</label>
-              <input type="number" id="banyak_tiket" name="banyak_tiket" min="1" required>
+              <label for="quantity">Refund:</label>
+              <input type="number" id="quantity" name="quantity" min="1" required>
             </div>
-            <button type="submit">Edit</button>
+            <button style="background-color: #ff0000;" type="submit">Refund</button>
           </form>
         </div>
       </section>
